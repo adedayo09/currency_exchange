@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
 
 import '../models/conversion_history_model.dart';
@@ -29,7 +27,5 @@ class LocalHistoryDataSource implements HistoryDataSource {
   Future<void> saveConversionHistory(ConversionHistoryModel conversion) async {
     final id = db.collection('conversions').doc().id;
     await db.collection('conversions').doc(id).set(conversion.toJson());
-
-    final data = await db.collection('conversions').doc(id).get();
   }
 }

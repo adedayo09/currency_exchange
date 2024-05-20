@@ -19,7 +19,7 @@ class CurrenciesPage extends StatelessWidget {
           if (snapshot.hasError ||
               !snapshot.hasData ||
               snapshot.data?.error != null) {
-            return SizedBox.shrink();
+            return const SizedBox.shrink();
           }
           var data = snapshot.data?.data;
           return ListView.builder(

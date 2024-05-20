@@ -1,5 +1,4 @@
 import 'package:currency_assessment/core/network/network_data.dart';
-import 'package:currency_assessment/features/converter/data/models/free_currency_api_rate_model.dart';
 import 'package:currency_assessment/features/converter/domain/models/exchange_rates.dart';
 
 import '../models/currency.dart';

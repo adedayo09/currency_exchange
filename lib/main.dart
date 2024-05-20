@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'core/depencency_injection/service_locator.dart';
-import 'core/local_storage/shared_prefs.dart';
 import 'features/converter/presentation/data/providers.dart';
 
 void main() async {

@@ -14,7 +14,6 @@ class HistoricalConversion implements HistoryRepository {
   Future<DataState<List<Conversion>>> getConversionHistory() async {
     try {
       var conversions = await _localHistoryDataSource.getConversionHistory();
-      print(conversions);
       return DataSuccess(
           conversions.map((e) => Conversion.fromJson(e.toJson())).toList());
     } on Exception catch (e) {
@@ -28,10 +27,8 @@ class HistoricalConversion implements HistoryRepository {
     try {
       _localHistoryDataSource.saveConversionHistory(
           ConversionHistoryModel.fromJson(conversion.toJson()));
-      print("saving history");
       return DataSuccess(null);
     } on Exception catch (e) {
-      print("error sabing $e");
       return DataError(e);
     }
   }

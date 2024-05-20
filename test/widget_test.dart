@@ -11,12 +11,9 @@ import 'package:currency_assessment/features/converter/data/models/free_currency
 import 'package:currency_assessment/features/converter/data/models/free_currency_api_quota_model.dart';
 import 'package:currency_assessment/features/converter/data/models/free_currency_api_rate_model.dart';
 import 'package:currency_assessment/features/converter/data/repository/converter_implementation.dart';
-import 'package:currency_assessment/features/converter/domain/models/currency.dart';
 import 'package:currency_assessment/features/converter/domain/models/exchange_rates.dart';
 import 'package:currency_assessment/features/converter/domain/models/quota.dart';
-import 'package:currency_assessment/features/converter/domain/repositories/converter_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:currency_assessment/core/depencency_injection/service_locator.dart';
 import 'package:get_it/get_it.dart';
 
 class MockConverterRemoteApiDataSource extends ConverterDataSource {

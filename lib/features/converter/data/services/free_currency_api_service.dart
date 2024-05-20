@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:currency_assessment/core/constants/constants.dart';
 import 'package:currency_assessment/features/converter/data/models/free_currency_api_rate_model.dart';
 import 'package:dio/dio.dart';

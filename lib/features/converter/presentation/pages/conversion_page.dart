@@ -94,8 +94,6 @@ class _ConversionPageState extends State<ConversionPage> {
                             await Navigator.of(context).push(MaterialPageRoute(
                                 builder: (ctx) => CurrenciesPage()));
 
-                        print(destinationCurrency?.code);
-
                         destinationController.text = destinationCurrency!.code!;
 
                         Provider.of<CurrencyConversionProvider>(context,
@@ -113,7 +111,6 @@ class _ConversionPageState extends State<ConversionPage> {
                       hintText: 'Amount',
                       validator: (val) => val!.isEmpty ? 'enter value' : null,
                       onChanged: (val) {
-                        print("&*: ${double.parse(val)}");
                         Provider.of<ConversionAmountProvider>(context,
                                 listen: false)
                             .setConversionAmount(double.parse(val));
@@ -123,10 +120,11 @@ class _ConversionPageState extends State<ConversionPage> {
                       builder: (BuildContext context,
                           CurrencyConversionProvider currencyConversionValue,
                           Widget? child) {
-                        print("&*: $currencyConversionValue");
                         if (currencyConversionValue.targetCurrency == null ||
-                            currencyConversionValue.destinationCurrency == null)
-                          return SizedBox.shrink();
+                            currencyConversionValue.destinationCurrency ==
+                                null) {
+                          return const SizedBox.shrink();
+                        }
                         return FutureBuilder(
                             future: _getRatesUseCase(
                                 params: GetRatesParams(
@@ -136,10 +134,8 @@ class _ConversionPageState extends State<ConversionPage> {
                                         .destinationCurrency!.code!)),
                             builder: (context, snapshot) {
                               if (snapshot.hasError || !snapshot.hasData) {
-                                print(snapshot.error);
-                                return SizedBox.shrink();
+                                return const SizedBox.shrink();
                               }
-                              print("&*: ${snapshot.data!.data!.first.rate}");
                               return Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
